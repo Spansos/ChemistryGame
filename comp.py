@@ -31,14 +31,12 @@ def main():
 
     while code:
         line = code.pop(0)
+
         for i, item in enumerate(line):
             try:
-                line[i] = symbol_table[item]
-            except KeyError:
-                try:
-                    line[i] = int(item, 0)
-                except ValueError:
-                    pass
+                line[i] = int(item, 0)
+            except ValueError:
+                pass
 
         match line[0].lower():
             case 'add':
