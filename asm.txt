@@ -1,7 +1,0 @@
-MACRO TEST
-DATA 0 1
-ADD 1 0
-END
-
-
-TEST
