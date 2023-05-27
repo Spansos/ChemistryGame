@@ -4,6 +4,9 @@ class Thing:
         self.conditions: set[Condition] = set()
         self.conditionals: set[Conditional] = set()
 
+    def update(self):
+        pass
+
     def __repr__(self):
         return f"{{{type(self)}, {self.name}}}"
 
