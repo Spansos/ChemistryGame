@@ -1,5 +1,6 @@
 CC     := g++
-CFLAGS := -g -Wall -Wpedantic -Wpedantic -Wextra -Og -Iinclude
+# CFLAGS := -g -Wall -Wpedantic -Wextra -Og -Iinclude
+CFLAGS := -g -Wall -Wextra -Og -Iinclude
 
 # cpp and header files from own project
 # 2 (or 1?) levels of recursion
