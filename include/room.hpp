@@ -67,6 +67,9 @@ public:
         for (const auto & item : items)
             item->render(window);
 
+        for (const auto & furn : furniture)
+            furn->render(window);
+
         window.display();
     }
 
@@ -78,10 +81,14 @@ public:
         items.push_back(std::move(item));
     }
 
+    void add_furniture(std::unique_ptr<Furniture> furn) {
+        furniture.push_back(std::move(furn));
+    }
+
     const sf::Vector2f size;
 private:
     b2WorldId world;
     b2BodyId room;
     std::vector<std::unique_ptr<Item>> items;
-    std::vector<Furniture*> furniture;
+    std::vector<std::unique_ptr<Furniture>> furniture;
 };

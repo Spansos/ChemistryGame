@@ -22,4 +22,8 @@ void Furniture::render(sf::RenderWindow & window) {
     sprite.setOrigin(sf::Vector2f{texture->getSize()}/2.0f);
     sprite.setPosition(pos.x, pos.y);
     sprite.setRotation(b2Rot_GetAngle(rot)/(2.0f*b2_pi)*360.0f);
+    sprite.setScale(1.0/texture->getSize().x, -1.0/texture->getSize().y);
+    sprite.scale(2.5, 2.5);
+
+    window.draw(sprite);
 }

@@ -12,7 +12,7 @@ Item::Item(const Room & room) {
     body = b2CreateBody(room.get_world(), &body_def);
 
     // add box shape
-    b2Polygon box = b2MakeBox(0.5f, 0.5f);
+    b2Polygon box = b2MakeBox(0.05f, 0.05f);
     b2ShapeDef shape_def = b2DefaultShapeDef();
     shape_def.density = 0.3f;
     shape_def.friction = 0.3f;
@@ -28,7 +28,7 @@ void Item::update(sf::RenderWindow & window) {
         mouse_pos = {mouse_pos.x/window.getSize().x, mouse_pos.y/window.getSize().y};
         mouse_pos.x *= window.getView().getSize().x;
         mouse_pos.y *= window.getView().getSize().y;
-        b2Body_ApplyForceToCenter(body, (b2Vec2){mouse_pos.x*4, mouse_pos.y*4}, true);
+        b2Body_ApplyForceToCenter(body, (b2Vec2){mouse_pos.x/4, mouse_pos.y/4}, true);
     }
 }
 
@@ -38,8 +38,8 @@ void Item::render(sf::RenderWindow & window) const {
     
     sf::RectangleShape shape;
 
-    shape.setSize({1.0f, 1.0f});
-    shape.setOrigin(0.5f, 0.5f);
+    shape.setSize({0.1f, 0.1f});
+    shape.setOrigin(0.05f, 0.05f);
     shape.setPosition(pos.x, pos.y);
     shape.setRotation(b2Rot_GetAngle(rot)/(2.0f*b2_pi)*360.0f);
 

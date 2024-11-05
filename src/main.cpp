@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "room.hpp"
+#include "shelf.hpp"
 
 int main() {
     sf::RenderWindow window{{1280, 720}, "Die Chemer"};
@@ -37,8 +38,9 @@ int main() {
 
     // b2CreatePolygonShape(bodyId, &shapeDef, &dynamicBox);
 
-    Room room{{16, 8}};
+    Room room{{4, 3}};
     room.add_item(std::make_unique<Item>(room));
+    room.add_furniture(std::make_unique<Shelf>(room, sf::Vector2f{0, -.25}));
 
     while (window.isOpen()) {
         sf::Event event;
